@@ -1,4 +1,4 @@
-#version=3.6.1-1.18.0-5.1.1
+#version=1.18.0-3.6.1-8u-5.1.1
 FROM openjdk:8-stretch
 
 # Protobuf compiler https://github.com/google/protobuf/releases

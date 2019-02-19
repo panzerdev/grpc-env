@@ -1,4 +1,4 @@
-#version=3.6.1-1.18.0-1.11.5
+#version=1.18.0-3.6.1-1.11.5
 FROM golang:1.11.5
 
 # Protobuf compiler     https://github.com/google/protobuf/releases
