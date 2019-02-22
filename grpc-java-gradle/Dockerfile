@@ -1,4 +1,4 @@
-#version=1.18.0-3.6.1-8u-5.1.1
+#version=1.18.0-3.6.1-8u-5.2.1
 FROM openjdk:8-stretch
 
 # Protobuf compiler https://github.com/google/protobuf/releases
@@ -9,7 +9,8 @@ FROM openjdk:8-stretch
 # http://www.grpc.io/docs/tutorials/basic/java.html
 # https://gradle.org/releases/
 
-ENV PROTO_C_VERSION=3.6.1 \
+ENV JAVA_VERSION=8 \
+    PROTO_C_VERSION=3.6.1 \
     GRPC_VERSION=1.18.0 \
     GRADLE_VERSION=5.2.1 \
     DEBIAN_FRONTEND="noninteractive"
@@ -30,3 +31,8 @@ RUN wget -q https://github.com/google/protobuf/releases/download/v${PROTO_C_VERS
     && rm gradle-${GRADLE_VERSION}-bin.zip \
     && ln --symbolic /opt/gradle/gradle-${GRADLE_VERSION}/bin/gradle /usr/bin/gradle
 
+
+RUN echo -n 'docker run --rm -u `id -u $USER` -it -v $(pwd):$(pwd) -w $(pwd) ' >> help && \
+    echo "grpc-java-gradle:$GRPC_VERSION-$PROTO_C_VERSION-$JAVA_VERSION-$GRADLE_VERSION ./gen.sh" >> help
+
+CMD cat "help"
