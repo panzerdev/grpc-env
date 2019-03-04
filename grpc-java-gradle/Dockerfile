@@ -1,5 +1,13 @@
-#version=1.18.0-3.6.1-8u-5.2.1
-FROM openjdk:8-stretch
+#version=1.19.0-3.6.1-8u-5.2.1
+ARG BASE_IMAGE=openjdk
+ARG JAVA_VERSION=8-stretch
+
+FROM ${BASE_IMAGE}:${JAVA_VERSION}
+ARG JAVA_VERSION
+
+ARG PROTO_C_VERSION=3.6.1
+ARG GRPC_VERSION=1.19.0
+ARG GRADLE_VERSION=5.2.1
 
 # Protobuf compiler https://github.com/google/protobuf/releases
 
@@ -9,11 +17,7 @@ FROM openjdk:8-stretch
 # http://www.grpc.io/docs/tutorials/basic/java.html
 # https://gradle.org/releases/
 
-ENV JAVA_VERSION=8 \
-    PROTO_C_VERSION=3.6.1 \
-    GRPC_VERSION=1.18.0 \
-    GRADLE_VERSION=5.2.1 \
-    DEBIAN_FRONTEND="noninteractive"
+ENV DEBIAN_FRONTEND="noninteractive"
 
 WORKDIR /app
 

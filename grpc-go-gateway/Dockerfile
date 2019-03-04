@@ -1,18 +1,23 @@
-#version=1.18.0-3.6.1-1.11.5-1.7.0
-FROM golang:1.11.5
+#version=1.19.0-3.6.1-1.12.0-1.7.0
+ARG GO_BASE_IMAGE=golang
+ARG GO_VERSION=1.12.0
+
+FROM ${GO_BASE_IMAGE}:${GO_VERSION}
+ARG GO_VERSION
+
+ARG PROTO_C_VERSION=3.6.1
+ARG GRPC_VERSION=1.19.0
+ARG PROTO_VERSION=v1.2.0
+ARG GATEWAY_VERSION=1.7.0
 
 # Protobuf compiler     https://github.com/google/protobuf/releases
 # GRPC plugin           https://github.com/grpc/grpc-go/releases
 # Go Proto              https://github.com/golang/protobuf/releases
 # GRPC Gateway          https://github.com/grpc-ecosystem/grpc-gateway
 
-ENV GO_VERSION=1.11.5 \
-    PROTO_C_VERSION=3.6.1 \
-    GRPC_VERSION=1.18.0 \
+ENV  \
     DEBIAN_FRONTEND="noninteractive" \
-    GO111MODULE=on \
-    PROTO_VERSION=v1.2.0 \
-    GATEWAY_VERSION=1.7.0
+    GO111MODULE=on
 
 
 WORKDIR /app
