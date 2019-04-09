@@ -1,12 +1,12 @@
-#version=1.19.0-3.6.1-1.12.0
+#version=1.19.1-3.7.1-1.12.0
 ARG GO_BASE_IMAGE=golang
 ARG GO_VERSION=1.12.0
 
 FROM ${GO_BASE_IMAGE}:${GO_VERSION}
 ARG GO_VERSION
 
-ARG PROTO_C_VERSION=3.6.1
-ARG GRPC_VERSION=1.19.0
+ARG PROTO_C_VERSION=3.7.1
+ARG GRPC_VERSION=1.19.1
 ARG PROTO_VERSION=v1.2.0
 
 # Protobuf compiler     https://github.com/google/protobuf/releases

@@ -1,11 +1,11 @@
-#version=1.19.0-3.6.1-3.7.2
+#version=1.19.0-3.7.1-3.7.2
 ARG BASE_IMAGE=python
 ARG PYTHON_VERSION=3.7.2-stretch
 
 FROM ${BASE_IMAGE}:${PYTHON_VERSION}
 ARG PYTHON_VERSION
 
-ARG PROTO_C_VERSION=3.6.1
+ARG PROTO_C_VERSION=3.7.1
 ARG GRPC_VERSION=1.19.0
 
 # https://pypi.org/project/grpcio-tools/
